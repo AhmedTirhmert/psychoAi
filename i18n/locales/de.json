@@ -1,0 +1,70 @@
+{
+    "pages": {
+        "auth": {
+            "labels": {
+                "email": "E-mail",
+                "password": "Wachtwoord",
+                "name": "Naam",
+                "remember_me": "Onthoud mij"
+            },
+            "placeholders": {
+                "email": "E-mail",
+                "password": "Wachtwoord",
+                "name": "Voer je naam in"
+            },
+            "links": {
+                "forgot_password": "Wachtwoord vergeten?",
+                "back_to_login": "Terug naar inloggen"
+            },
+            "buttons": {
+                "sign_in": "Inloggen",
+                "reset_password": "Wachtwoord herstellen",
+                "terms_and_conditions": "Ik accepteer alle algemene voorwaarden",
+                "sign_up": "Aanmelden"
+            },
+            "messages": {
+                "continue_with": "Of ga verder met",
+                "dont_have_an_account": "Heb je geen account?",
+                "already_have_an_account": "Heb je al een account?",
+                "header_forgot_password": "Wachtwoord vergeten?",
+                "instructions_forgot_password": "Voer je e-mail in en we sturen je instructies om je wachtwoord te resetten."
+            },
+            "errors": {
+                "name_is_required": "Naam is verplicht",
+                "invalid_email": "Ongeldig e-mail",
+                "password_is_required": "Wachtwoord is verplicht",
+                "must_be_at_least_8_characters": "Moet minstens 8 tekens bevatten",
+                "you_must_agree_to_terms_and_conditions": "Je moet akkoord gaan met de algemene voorwaarden"
+            }
+        },
+        "messages": {
+            "welcome_to": "Willkommen bei"
+        },
+        "buttons": {
+            "language": "Sprache",
+            "logout": "Abmelden",
+            "profile": "Profil",
+            "light": "Licht",
+            "dark": "Donker",
+            
+            "theme": "Thema"
+        },
+        "titles": {
+            "home": "Home",
+            "login": "Inloggen",
+            "reset_password": "Wachtwoord herstellen",
+            "register": "Registreren",
+            "profile": "Profiel"
+        }
+    },
+    "responses": {
+        "status": {
+            "success": "Erfolg",
+            "error": "Fehler"
+        },
+        "messages": {
+            "password_reset_email_has_been_sent": "Die E-Mail zum Zurücksetzen des Passworts wurde gesendet",
+            "verification_email_has_been_sent": "Die Bestätigungs-E-Mail wurde gesendet"
+        }
+    }
+}

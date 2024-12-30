@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+/* @theme {
+  --font-sans: 'Public Sans', sans-serif;
+}
+*/
+/* body {
+  @apply bg-gray-100 dark:bg-gray-950;
+} */
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s;
+  transform: translateX(0);
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  filter: blur(.2rem);
+  transform: translateX(10%);
+}
