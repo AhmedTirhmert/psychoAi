@@ -1,6 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: '',
+    },
+  },
+  sourcemap: {
+    server: true,
+    client: false,
+  },
   modules: [
     '@nuxt/ui',
     '@nuxt/eslint',

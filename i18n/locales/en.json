@@ -5,12 +5,18 @@
                 "email": "Email",
                 "password": "Password",
                 "name": "Name",
-                "remember_me": "Remember me"
+                "remember_me": "Remember me",
+                "confirm_password": "Confirm password",
+                "full_name": "Full Name",
+                "username": "Username"
             },
             "placeholders": {
-                "email": "Email",
-                "password": "Password",
-                "name": "Enter your name"
+                "email": "Enter email",
+                "password": "Enter password",
+                "name": "Enter your name",
+                "confirm_password": "Confirm password",
+                "full_name": "Enter your Full Name",
+                "username": "Enter username"
             },
             "links": {
                 "forgot_password": "Forgot password?",
@@ -30,11 +36,14 @@
                 "instructions_forgot_password": "Enter your email, and we'll send you instructions to reset your password."
             },
             "errors": {
-                "name_is_required": "Name is required",
                 "invalid_email": "Invalid email",
                 "password_is_required": "Password is required",
                 "must_be_at_least_8_characters": "Must be at least 8 characters",
-                "you_must_agree_to_terms_and_conditions": "You must agree to terms and conditions"
+                "you_must_agree_to_terms_and_conditions": "You must agree to terms and conditions",
+                "full_name_is_required": "Full name is required",
+                "username_is_required": "Username is required",
+                "confirm_password_is_required": "Password confirmation is required",
+                "passwords_dont_match": "Passwords don't match"
             }
         },
         "messages": {

@@ -1,21 +1,41 @@
 <script setup lang="ts">
-  import * as v from 'valibot';
+  import type { registerForm } from '~~/types/auth';
   import type { FormSubmitEvent } from '#ui/types';
+  import * as v from 'valibot';
+  import { useAuthStore } from '~/store/auth';
+
+  const toast = useToast();
+  const { t } = useI18n();
+  const { register } = useAuthStore();
+  const { reset } = useResetObject();
   const showPassword = ref<boolean>(false);
   const isLoading = ref<boolean>(false);
-  const { t } = useI18n();
+
   const schema = computed(() =>
     v.object({
-      name: v.pipe(
+      username: v.pipe(
         v.string(),
         v.trim(),
-        v.nonEmpty(t('pages.auth.errors.name_is_required')),
+        v.nonEmpty(t('pages.auth.errors.username_is_required')),
+      ),
+      fullName: v.pipe(
+        v.string(),
+        v.trim(),
+        v.nonEmpty(t('pages.auth.errors.full_name_is_required')),
       ),
       email: v.pipe(v.string(), v.email(t('pages.auth.errors.invalid_email'))),
       password: v.pipe(
         v.string(),
         v.nonEmpty(t('pages.auth.errors.password_is_required')),
         v.minLength(8, t('pages.auth.errors.must_be_at_least_8_characters')),
+      ),
+      confirm_password: v.pipe(
+        v.string(),
+        v.nonEmpty(t('pages.auth.errors.confirm_password_is_required')),
+        v.check(
+          () => state.password === state.confirm_password,
+          t('pages.auth.errors.passwords_dont_match'),
+        ),
       ),
       accept_terms_and_conditions: v.pipe(
         v.boolean(),
@@ -26,26 +46,39 @@
       ),
     }),
   );
+
   // const alert = (message: string) => window.alert(message);
   type Schema = v.InferOutput<typeof schema.value>;
-
-  const state = reactive({
-    name: '',
+  const state = reactive<registerForm>({
+    fullName: '',
+    username: '',
     email: '',
     password: '',
+    confirm_password: '',
     accept_terms_and_conditions: false,
   });
-  const toast = useToast();
+
   async function onSubmit(event: FormSubmitEvent<Schema>) {
-    isLoading.value = true;
-    setTimeout(() => {
-      isLoading.value = false;
+    try {
+      isLoading.value = true;
+      const response = await register(state);
+      reset(state);
       toast.add({
-        icon: 'lucide:mail-check',
         title: t('responses.status.success'),
-        description: t('responses.messages.verification_email_has_been_sent'),
+        icon: 'lucide:mail',
+        description: Object.values(response.value).join('\n'),
+        color: 'success',
       });
-    }, 500);
+    } catch (error) {
+      toast.add({
+        title: t('responses.status.error'),
+        icon: 'material-symbols:dangerous-outline',
+        description: String(error),
+        color: 'error',
+      });
+    } finally {
+      isLoading.value = false;
+    }
   }
 
   definePageMeta({
@@ -64,14 +97,29 @@
         :state="state"
         class="flex flex-col gap-4"
         @submit="onSubmit"
+        :disabled="isLoading"
       >
-        <UFormField :label="$t('pages.auth.labels.name')" name="name">
+        <UFormField :label="$t('pages.auth.labels.full_name')" name="fullName">
           <UInput
             class="block"
-            v-model="state.name"
-            :placeholder="$t('pages.auth.placeholders.name')"
+            v-model="state.fullName"
+            :placeholder="$t('pages.auth.placeholders.full_name')"
           />
         </UFormField>
+
+        <UFormField :label="$t('pages.auth.labels.username')" name="username">
+          <UInput
+            class="block"
+            v-model="state.username"
+            :placeholder="$t('pages.auth.placeholders.username')"
+            icon="lucide:at-sign"
+            :ui="{
+              leadingIcon: 'w-4 ',
+              base: 'pl-7',
+            }"
+          />
+        </UFormField>
+
         <UFormField :label="$t('pages.auth.labels.email')" name="email">
           <UInput
             class="block"
@@ -85,6 +133,32 @@
             class="block"
             v-model="state.password"
             :placeholder="$t('pages.auth.placeholders.password')"
+            :type="showPassword ? 'text' : 'password'"
+            :ui="{ trailing: 'pe-1' }"
+          >
+            <template #trailing>
+              <UButton
+                color="neutral"
+                variant="link"
+                size="sm"
+                :icon="showPassword ? 'i-lucide-eye-off' : 'i-lucide-eye'"
+                aria-label="show ? 'Hide password' : 'Show password'"
+                :aria-pressed="showPassword"
+                aria-controls="password"
+                @click="showPassword = !showPassword"
+              />
+            </template>
+          </UInput>
+        </UFormField>
+
+        <UFormField
+          :label="$t('pages.auth.labels.confirm_password')"
+          name="confirm_password"
+        >
+          <UInput
+            class="block"
+            v-model="state.confirm_password"
+            :placeholder="$t('pages.auth.placeholders.confirm_password')"
             :type="showPassword ? 'text' : 'password'"
             :ui="{ trailing: 'pe-1' }"
           >

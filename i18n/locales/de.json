@@ -5,12 +5,18 @@
                 "email": "E-mail",
                 "password": "Wachtwoord",
                 "name": "Naam",
-                "remember_me": "Onthoud mij"
+                "remember_me": "Onthoud mij",
+                "confirm_password": "Passwort bestätigen",
+                "full_name": "Vollständiger Name",
+                "username": "Benutzername"
             },
             "placeholders": {
                 "email": "E-mail",
                 "password": "Wachtwoord",
-                "name": "Voer je naam in"
+                "name": "Voer je naam in",
+                "confirm_password": "Passwort bestätigen",
+                "full_name": "Geben Sie Ihren vollständigen Namen ein",
+                "username": "Geben Sie einen Benutzernamen ein"
             },
             "links": {
                 "forgot_password": "Wachtwoord vergeten?",
@@ -34,7 +40,11 @@
                 "invalid_email": "Ongeldig e-mail",
                 "password_is_required": "Wachtwoord is verplicht",
                 "must_be_at_least_8_characters": "Moet minstens 8 tekens bevatten",
-                "you_must_agree_to_terms_and_conditions": "Je moet akkoord gaan met de algemene voorwaarden"
+                "you_must_agree_to_terms_and_conditions": "Je moet akkoord gaan met de algemene voorwaarden",
+                "full_name_is_required": "Der vollständige Name ist erforderlich",
+                "username_is_required": "Der Benutzername ist erforderlich",
+                "confirm_password_is_required": "Die Bestätigung des Passworts ist erforderlich",
+                "passwords_dont_match": "Die Passwörter stimmen nicht überein"
             }
         },
         "messages": {
@@ -46,7 +56,6 @@
             "profile": "Profil",
             "light": "Licht",
             "dark": "Donker",
-            
             "theme": "Thema"
         },
         "titles": {
