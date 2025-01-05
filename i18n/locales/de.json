@@ -8,7 +8,8 @@
                 "remember_me": "Onthoud mij",
                 "confirm_password": "Passwort bestätigen",
                 "full_name": "Vollständiger Name",
-                "username": "Benutzername"
+                "username": "Benutzername",
+                "email_or_username": "E-Mail oder Benutzername"
             },
             "placeholders": {
                 "email": "E-mail",
@@ -16,7 +17,8 @@
                 "name": "Voer je naam in",
                 "confirm_password": "Passwort bestätigen",
                 "full_name": "Geben Sie Ihren vollständigen Namen ein",
-                "username": "Geben Sie einen Benutzernamen ein"
+                "username": "Geben Sie einen Benutzernamen ein",
+                "email_or_username": "E-Mail oder Name"
             },
             "links": {
                 "forgot_password": "Wachtwoord vergeten?",
@@ -44,7 +46,8 @@
                 "full_name_is_required": "Der vollständige Name ist erforderlich",
                 "username_is_required": "Der Benutzername ist erforderlich",
                 "confirm_password_is_required": "Die Bestätigung des Passworts ist erforderlich",
-                "passwords_dont_match": "Die Passwörter stimmen nicht überein"
+                "passwords_dont_match": "Die Passwörter stimmen nicht überein",
+                "email_or_username_is_required": "E-Mail oder Benutzername ist erforderlich"
             }
         },
         "messages": {

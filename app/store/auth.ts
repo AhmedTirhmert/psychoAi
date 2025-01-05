@@ -1,9 +1,13 @@
 export const useAuthStore = defineStore('auth', () => {
   const user = ref(null);
+
   const login = async (userData: any) => {
-    const response = await useFetch('/api/auth/signin');
-    user.value = userData;
-    // navigateTo({ name: 'home' });
+    const { data, error } = await useFetch('/api/auth/login', {
+      body: { ...userData },
+      method: 'post',
+    });
+    if (error.value) throw Object.values(error.value.data.data).join('\n');
+    return data;
   };
 
   const register = async (userData: any) => {

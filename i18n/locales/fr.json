@@ -1,79 +1,82 @@
 {
-    "pages": {
-        "auth": {
-            "labels": {
-                "email": "E-mail",
-                "password": "Mot de passe",
-                "name": "Nom",
-                "remember_me": "Se souvenir de moi",
-                "confirm_password": "Confirmez le mot de passe",
-                "full_name": "Nom complet",
-                "username": "Nom d'utilisateur"
-            },
-            "placeholders": {
-                "email": "E-mail",
-                "password": "Mot de passe",
-                "name": "Entrez votre nom",
-                "confirm_password": "Confirmez le mot de passe",
-                "full_name": "Entrez votre nom complet",
-                "username": "Entrez un nom d'utilisateur"
-            },
-            "links": {
-                "forgot_password": "Mot de passe oublié ?",
-                "back_to_login": "Retour à la connexion"
-            },
-            "buttons": {
-                "sign_in": "Se connecter",
-                "reset_password": "Réinitialiser le mot de passe",
-                "terms_and_conditions": "J'accepte tous les termes et conditions",
-                "sign_up": "S'inscrire"
-            },
-            "messages": {
-                "continue_with": "Ou continuer avec",
-                "dont_have_an_account": "Vous n'avez pas de compte ?",
-                "already_have_an_account": "Vous avez déjà un compte ?",
-                "header_forgot_password": "Mot de passe oublié ?",
-                "instructions_forgot_password": "Entrez votre e-mail, et nous vous enverrons les instructions pour réinitialiser votre mot de passe."
-            },
-            "errors": {
-                "name_is_required": "Le nom est requis",
-                "invalid_email": "E-mail invalide",
-                "password_is_required": "Le mot de passe est requis",
-                "must_be_at_least_8_characters": "Doit comporter au moins 8 caractères",
-                "you_must_agree_to_terms_and_conditions": "Vous devez accepter les termes et conditions",
-                "full_name_is_required": "Le nom complet est obligatoire",
-                "username_is_required": "Le nom d'utilisateur est obligatoire",
-                "confirm_password_is_required": "La confirmation du mot de passe est obligatoire",
-                "passwords_dont_match": "Les mots de passe ne correspondent pas"
-            }
-        },
-        "messages": {
-            "welcome_to": "Bienvenue à"
-        },
-        "buttons": {
-            "language": "Langue",
-            "logout": "Se déconnecter",
-            "profile": "Profil",
-            "light": "Clair",
-            "dark": "Sombre",
-            "theme": "Thème"
-        },
-        "titles": {
-            "home": "Accueil",
-            "login": "Connexion",
-            "reset_password": "Réinitialiser le mot de passe",
-            "register": "S'inscrire",
-            "profile": "Profil"
-        }
+  "pages": {
+    "auth": {
+      "labels": {
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "name": "Nom",
+        "remember_me": "Se souvenir de moi",
+        "confirm_password": "Confirmez le mot de passe",
+        "full_name": "Nom complet",
+        "username": "Nom d'utilisateur",
+        "email_or_username": "Email ou nom d'utilisateur"
+      },
+      "placeholders": {
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "name": "Entrez votre nom",
+        "confirm_password": "Confirmez le mot de passe",
+        "full_name": "Entrez votre nom complet",
+        "username": "Entrez un nom d'utilisateur",
+        "email_or_username": "Email ou nom"
+      },
+      "links": {
+        "forgot_password": "Mot de passe oublié ?",
+        "back_to_login": "Retour à la connexion"
+      },
+      "buttons": {
+        "sign_in": "Se connecter",
+        "reset_password": "Réinitialiser le mot de passe",
+        "terms_and_conditions": "J'accepte tous les termes et conditions",
+        "sign_up": "S'inscrire"
+      },
+      "messages": {
+        "continue_with": "Ou continuer avec",
+        "dont_have_an_account": "Vous n'avez pas de compte ?",
+        "already_have_an_account": "Vous avez déjà un compte ?",
+        "header_forgot_password": "Mot de passe oublié ?",
+        "instructions_forgot_password": "Entrez votre e-mail, et nous vous enverrons les instructions pour réinitialiser votre mot de passe."
+      },
+      "errors": {
+        "name_is_required": "Le nom est requis",
+        "invalid_email": "E-mail invalide",
+        "password_is_required": "Le mot de passe est requis",
+        "must_be_at_least_8_characters": "Doit comporter au moins 8 caractères",
+        "you_must_agree_to_terms_and_conditions": "Vous devez accepter les termes et conditions",
+        "full_name_is_required": "Le nom complet est obligatoire",
+        "username_is_required": "Le nom d'utilisateur est obligatoire",
+        "confirm_password_is_required": "La confirmation du mot de passe est obligatoire",
+        "passwords_dont_match": "Les mots de passe ne correspondent pas",
+        "email_or_username_is_required": "L'email ou le nom d'utilisateur est obligatoire"
+      }
     },
-    "responses": {
-        "status": {
-            "success": "Succès",
-            "error": "Erreur"
-        },
-        "messages": {
-            "password_reset_email_has_been_sent": "L'email de réinitialisation du mot de passe a été envoyé",
-            "verification_email_has_been_sent": "L'email de vérification a été envoyé"
-        }
+    "messages": {
+      "welcome_to": "Bienvenue à"
+    },
+    "buttons": {
+      "language": "Langue",
+      "logout": "Se déconnecter",
+      "profile": "Profil",
+      "light": "Clair",
+      "dark": "Sombre",
+      "theme": "Thème"
+    },
+    "titles": {
+      "home": "Accueil",
+      "login": "Connexion",
+      "reset_password": "Réinitialiser le mot de passe",
+      "register": "S'inscrire",
+      "profile": "Profil"
     }
+  },
+  "responses": {
+    "status": {
+      "success": "Succès",
+      "error": "Erreur"
+    },
+    "messages": {
+      "password_reset_email_has_been_sent": "L'email de réinitialisation du mot de passe a été envoyé",
+      "verification_email_has_been_sent": "L'email de vérification a été envoyé"
+    }
+  }
 }

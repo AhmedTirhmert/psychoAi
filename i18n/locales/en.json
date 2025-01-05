@@ -1,78 +1,81 @@
 {
-    "pages": {
-        "auth": {
-            "labels": {
-                "email": "Email",
-                "password": "Password",
-                "name": "Name",
-                "remember_me": "Remember me",
-                "confirm_password": "Confirm password",
-                "full_name": "Full Name",
-                "username": "Username"
-            },
-            "placeholders": {
-                "email": "Enter email",
-                "password": "Enter password",
-                "name": "Enter your name",
-                "confirm_password": "Confirm password",
-                "full_name": "Enter your Full Name",
-                "username": "Enter username"
-            },
-            "links": {
-                "forgot_password": "Forgot password?",
-                "back_to_login": "Back to Log In"
-            },
-            "buttons": {
-                "sign_in": "Sign In",
-                "reset_password": "Reset Password",
-                "terms_and_conditions": "I accept all terms & conditions",
-                "sign_up": "Sign up"
-            },
-            "messages": {
-                "continue_with": "Or Continue With",
-                "dont_have_an_account": "Don't have an account?",
-                "already_have_an_account": "Already have an account?",
-                "header_forgot_password": "Forgot Password?",
-                "instructions_forgot_password": "Enter your email, and we'll send you instructions to reset your password."
-            },
-            "errors": {
-                "invalid_email": "Invalid email",
-                "password_is_required": "Password is required",
-                "must_be_at_least_8_characters": "Must be at least 8 characters",
-                "you_must_agree_to_terms_and_conditions": "You must agree to terms and conditions",
-                "full_name_is_required": "Full name is required",
-                "username_is_required": "Username is required",
-                "confirm_password_is_required": "Password confirmation is required",
-                "passwords_dont_match": "Passwords don't match"
-            }
-        },
-        "messages": {
-            "welcome_to": "Welcome to"
-        },
-        "buttons": {
-            "language": "Language",
-            "logout": "Log out",
-            "profile": "Profile",
-            "light": "Light",
-            "dark": "Dark",
-            "theme": "Theme"
-        },
-        "titles": {
-            "home": "Home",
-            "login": "Login",
-            "reset_password": "Reset Password",
-            "register": "Register",
-            "profile": "Profile"
-        }
+  "pages": {
+    "auth": {
+      "labels": {
+        "email": "Email",
+        "password": "Password",
+        "name": "Name",
+        "remember_me": "Remember me",
+        "confirm_password": "Confirm password",
+        "full_name": "Full Name",
+        "username": "Username",
+        "email_or_username": "Email or username"
+      },
+      "placeholders": {
+        "email": "Enter email",
+        "password": "Enter password",
+        "name": "Enter your name",
+        "confirm_password": "Confirm password",
+        "full_name": "Enter your Full Name",
+        "username": "Enter username",
+        "email_or_username": "Enter email or username"
+      },
+      "links": {
+        "forgot_password": "Forgot password?",
+        "back_to_login": "Back to Log In"
+      },
+      "buttons": {
+        "sign_in": "Sign In",
+        "reset_password": "Reset Password",
+        "terms_and_conditions": "I accept all terms & conditions",
+        "sign_up": "Sign up"
+      },
+      "messages": {
+        "continue_with": "Or Continue With",
+        "dont_have_an_account": "Don't have an account?",
+        "already_have_an_account": "Already have an account?",
+        "header_forgot_password": "Forgot Password?",
+        "instructions_forgot_password": "Enter your email, and we'll send you instructions to reset your password."
+      },
+      "errors": {
+        "invalid_email": "Invalid email",
+        "password_is_required": "Password is required",
+        "must_be_at_least_8_characters": "Must be at least 8 characters",
+        "you_must_agree_to_terms_and_conditions": "You must agree to terms and conditions",
+        "full_name_is_required": "Full name is required",
+        "username_is_required": "Username is required",
+        "confirm_password_is_required": "Password confirmation is required",
+        "passwords_dont_match": "Passwords don't match",
+        "email_or_username_is_required": "Email or username is required"
+      }
     },
-    "responses": {
-        "status": {
-            "success": "Success",
-            "error": "Error"
-        },
-        "messages": {
-            "password_reset_email_has_been_sent": "Password reset email has been sent",
-            "verification_email_has_been_sent": "Verification email has been sent"
-        }
+    "messages": {
+      "welcome_to": "Welcome to"
+    },
+    "buttons": {
+      "language": "Language",
+      "logout": "Log out",
+      "profile": "Profile",
+      "light": "Light",
+      "dark": "Dark",
+      "theme": "Theme"
+    },
+    "titles": {
+      "home": "Home",
+      "login": "Login",
+      "reset_password": "Reset Password",
+      "register": "Register",
+      "profile": "Profile"
     }
+  },
+  "responses": {
+    "status": {
+      "success": "Success",
+      "error": "Error"
+    },
+    "messages": {
+      "password_reset_email_has_been_sent": "Password reset email has been sent",
+      "verification_email_has_been_sent": "Verification email has been sent"
+    }
+  }
 }

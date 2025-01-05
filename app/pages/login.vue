@@ -2,16 +2,24 @@
   import * as v from 'valibot';
   import type { FormSubmitEvent } from '#ui/types';
   import { useAuthStore } from '~/store/auth';
+
   const { t } = useI18n();
+  const { login } = useAuth();
+  const toast = useToast();
+  const route = useRoute();
+
   const showPassword = ref<boolean>(false);
   const isLoading = ref<boolean>(false);
-  const { login } = useAuthStore();
+
   const schema = computed(() =>
     v.object({
-      email: v.pipe(v.string(), v.email(t('pages.auth.errors.invalid_email'))),
+      email_or_username: v.pipe(
+        v.string(),
+        v.nonEmpty(t('pages.auth.errors.email_or_username_is_required')),
+      ),
       password: v.pipe(
         v.string(),
-        v.minLength(8, t('pages.auth.errors.must_be_at_least_8_characters')),
+        v.nonEmpty(t('pages.auth.errors.password_is_required')),
       ),
       remember_me: v.pipe(v.boolean()),
     }),
@@ -20,7 +28,7 @@
   type Schema = v.InferOutput<typeof schema.value>;
 
   const state = reactive({
-    email: '',
+    email_or_username: '',
     password: '',
     remember_me: false,
   });
@@ -29,8 +37,16 @@
     try {
       isLoading.value = true;
       await login(state);
+      route.query.redirect
+        ? navigateTo(String(route.query.redirect))
+        : navigateTo('/');
     } catch (error) {
-      console.log(error);
+      toast.add({
+        title: t('responses.status.error'),
+        icon: 'material-symbols:dangerous-outline',
+        description: String(error),
+        color: 'error',
+      });
     } finally {
       isLoading.value = false;
     }
@@ -47,18 +63,21 @@
         <!-- <span class="text-xs leading-0 -mb-2">Welcom to</span> -->
         <span class="font-bold text-3xl block mb-4">PsychoAI</span>
       </div>
-      {{}}
       <UForm
         :schema="v.safeParser(schema)"
         :state="state"
         class="flex flex-col gap-4"
         @submit="onSubmit"
+        :disabled="isLoading"
       >
-        <UFormField :label="$t('pages.auth.labels.email')" name="email">
+        <UFormField
+          :label="$t('pages.auth.labels.email_or_username')"
+          name="email_or_username"
+        >
           <UInput
             class="block"
-            v-model="state.email"
-            :placeholder="$t('pages.auth.placeholders.email')"
+            v-model="state.email_or_username"
+            :placeholder="$t('pages.auth.placeholders.email_or_username')"
           />
         </UFormField>
 

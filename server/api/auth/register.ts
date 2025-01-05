@@ -1,11 +1,10 @@
-import { useApi } from '~~/server/utils/api';
+import { useApi } from '~~/utils/api';
 import { registerForm } from '~~/types/auth';
 
 export default defineEventHandler(async (event) => {
   const body = await readBody<registerForm>(event);
   try {
     const response = await useApi(
-      event,
       'auth/registration/',
       'POST',
       {
@@ -15,9 +14,11 @@ export default defineEventHandler(async (event) => {
         password2: body.confirm_password,
       },
       false,
+      event,
     );
     return response;
   } catch (error: any) {
+    console.log('Register ERROR', error);
     throw createError({
       ...error,
     });

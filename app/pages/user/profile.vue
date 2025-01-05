@@ -2,9 +2,11 @@
   definePageMeta({
     name: 'profile',
   });
+
+  const { user } = useUser();
 </script>
 <template>
-  <div>USER PROFILE</div>
+  <div>{{ user }}</div>
 </template>
 
 <style scoped></style>

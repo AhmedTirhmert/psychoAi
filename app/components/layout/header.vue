@@ -2,12 +2,12 @@
   import { useAuthStore } from '~/store/auth';
   const { t, locales, setLocale, locale } = useI18n();
   const { toggleSideBar, isSideBarPinned } = useLayout();
-  const { logout } = useAuthStore();
+  const { logout, user } = useAuth();
   const color = useColorMode();
   const items = computed(() => [
     [
       {
-        label: t('pages.buttons.profile'),
+        label: user.value?.username,
         avatar: {
           src: 'https://avatars.githubusercontent.com/u/26212497?v=4',
         },

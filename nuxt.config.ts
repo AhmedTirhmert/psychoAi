@@ -41,6 +41,11 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-
+  imports: {
+    dirs: ['./utils'],
+  },
+  // experimental: {
+  //   asyncContext: true,
+  // },
   compatibilityDate: '2024-11-27',
 });
