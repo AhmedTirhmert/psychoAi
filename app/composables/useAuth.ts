@@ -1,4 +1,9 @@
-import type { LoginForm, registerForm, User } from '~~/types/auth';
+import type {
+  LoginForm,
+  registerForm,
+  ResetPasswordForm,
+  User,
+} from '~~/types/auth';
 import { useApi } from '~~/utils/api';
 
 export const useAuth = () => {
@@ -53,15 +58,31 @@ export const useAuth = () => {
         message: Object.values(error.data).join('\n'),
       });
     }
+  };
 
-    // if (error.value) throw Object.values(error.value.data.data).join('\n');
-    // return data;
+  const resetPassword = async (email: string) => {
+    try {
+      return await useApi(
+        'auth/password/reset/',
+        'POST',
+        {
+          email,
+        },
+        false,
+      );
+    } catch (error: any) {
+      throw createError({
+        message: error.data
+          ? Object.values(error.data).join('\n')
+          : 'Something went wrong.\n Please try again later!',
+      });
+    }
   };
 
   const logout = async () => {
     try {
       if (isAuthenticated.value) {
-        await useApi('auth/logout', 'POST');
+        await useApi('auth/logout/', 'POST');
       }
     } catch (error) {
       console.error('Logout error:', error);
@@ -101,6 +122,7 @@ export const useAuth = () => {
     isAuthenticated,
     login,
     register,
+    resetPassword,
     logout,
     checkAuth,
   };

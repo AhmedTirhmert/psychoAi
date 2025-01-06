@@ -2,8 +2,11 @@
   import * as v from 'valibot';
   import type { FormSubmitEvent } from '#ui/types';
 
+  const { resetPassword } = useAuth();
   const { t } = useI18n();
+  const { reset } = useResetObject();
   const toast = useToast();
+
   const isLoading = ref<boolean>(false);
   const schema = computed(() =>
     v.object({
@@ -17,16 +20,26 @@
   });
 
   async function onSubmit(event: FormSubmitEvent<Schema>) {
-    isLoading.value = true;
-    setTimeout(() => {
-      isLoading.value = false;
+    try {
+      isLoading.value = true;
+      const { detail } = await resetPassword(state.email);
       toast.add({
         title: t('responses.status.success'),
-        icon: 'lucide:mail-check',
-        description: t('responses.messages.password_reset_email_has_been_sent'),
+        icon: 'lucide:mail',
+        description: String(detail),
+        color: 'success',
       });
-      console.log(event.data);
-    }, 500);
+    } catch (error: any) {
+      toast.add({
+        title: t('responses.status.error'),
+        icon: 'material-symbols:dangerous-outline',
+        description: String(error.message),
+        color: 'error',
+      });
+    } finally {
+      reset(state);
+      isLoading.value = false;
+    }
   }
 
   definePageMeta({

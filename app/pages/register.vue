@@ -69,7 +69,6 @@
         color: 'success',
       });
     } catch (error: any) {
-      console.log();
       toast.add({
         title: t('responses.status.error'),
         icon: 'material-symbols:dangerous-outline',
