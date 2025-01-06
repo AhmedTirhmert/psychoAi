@@ -2,11 +2,10 @@
   import type { registerForm } from '~~/types/auth';
   import type { FormSubmitEvent } from '#ui/types';
   import * as v from 'valibot';
-  import { useAuthStore } from '~/store/auth';
 
   const toast = useToast();
   const { t } = useI18n();
-  const { register } = useAuthStore();
+  const { register } = useAuth();
   const { reset } = useResetObject();
   const showPassword = ref<boolean>(false);
   const isLoading = ref<boolean>(false);
@@ -61,19 +60,20 @@
   async function onSubmit(event: FormSubmitEvent<Schema>) {
     try {
       isLoading.value = true;
-      const response = await register(state);
+      const { detail } = await register(state);
       reset(state);
       toast.add({
         title: t('responses.status.success'),
         icon: 'lucide:mail',
-        description: Object.values(response.value).join('\n'),
+        description: String(detail),
         color: 'success',
       });
-    } catch (error) {
+    } catch (error: any) {
+      console.log();
       toast.add({
         title: t('responses.status.error'),
         icon: 'material-symbols:dangerous-outline',
-        description: String(error),
+        description: String(error.message),
         color: 'error',
       });
     } finally {

@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import * as v from 'valibot';
   import type { FormSubmitEvent } from '#ui/types';
-  import { useAuthStore } from '~/store/auth';
 
   const { t } = useI18n();
   const { login } = useAuth();

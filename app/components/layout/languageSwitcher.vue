@@ -14,18 +14,6 @@
 </script>
 <template>
   <div class="flex items-center gap-0">
-    <!-- <select
-      @change="setLocale(locale)"
-      class="outline-none focus:outline-none ring-0"
-      v-model="locale"
-      name="lang"
-      id="lang"
-    >
-      :class="{ 'hidden': $device.isDesktop }"
-      <option v-for="local in locales" :value="local.code">
-        {{ local.name }}
-      </option>
-    </select> -->
     <UDropdownMenu
       :items="languages"
       :content="{

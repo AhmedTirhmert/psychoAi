@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { useAuthStore } from '~/store/auth';
   const { t, locales, setLocale, locale } = useI18n();
   const { toggleSideBar, isSideBarPinned } = useLayout();
   const { logout, user } = useAuth();

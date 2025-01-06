@@ -1,7 +1,7 @@
-import type { LoginForm, User } from '~~/types/auth';
+import type { LoginForm, registerForm, User } from '~~/types/auth';
 import { useApi } from '~~/utils/api';
 
-export const useAuth = <T = User>() => {
+export const useAuth = () => {
   const accessToken = useCookie('access_token', {
     maxAge: 7200, // 2 hours
     secure: true,
@@ -34,6 +34,29 @@ export const useAuth = <T = User>() => {
       throw Object.values(error.data).join('\n');
     }
   }
+
+  const register = async (userData: registerForm) => {
+    try {
+      return await useApi(
+        'auth/registration/',
+        'POST',
+        {
+          username: userData.username,
+          email: userData.email,
+          password1: userData.password,
+          password2: userData.confirm_password,
+        },
+        false,
+      );
+    } catch (error: any) {
+      throw createError({
+        message: Object.values(error.data).join('\n'),
+      });
+    }
+
+    // if (error.value) throw Object.values(error.value.data.data).join('\n');
+    // return data;
+  };
 
   const logout = async () => {
     try {
@@ -77,6 +100,7 @@ export const useAuth = <T = User>() => {
     user,
     isAuthenticated,
     login,
+    register,
     logout,
     checkAuth,
   };
