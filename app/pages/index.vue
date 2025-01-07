@@ -5,10 +5,10 @@
 </script>
 
 <template>
-  <div class="bg-red- h-full flex items-center justify-center">
+  <div class="h-full flex items-center justify-center">
     <span class="text-2xl font-semibold"
-      >{{ $t('pages.messages.welcome_to') }} <AppLogo
-    /></span>
+      >{{ $t('pages.messages.welcome_to') }} <AppLogo />
+    </span>
   </div>
 </template>
 

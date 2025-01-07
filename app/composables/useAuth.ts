@@ -1,9 +1,4 @@
-import type {
-  LoginForm,
-  registerForm,
-  ResetPasswordForm,
-  User,
-} from '~~/types/auth';
+import type { LoginForm, registerForm, User } from '~~/types/auth';
 import { useApi } from '~~/utils/api';
 
 export const useAuth = () => {
@@ -33,7 +28,6 @@ export const useAuth = () => {
         false,
       );
       accessToken.value = key;
-
       user.value = await fetchCurrentUser();
     } catch (error: any) {
       throw Object.values(error.data).join('\n');
@@ -102,7 +96,7 @@ export const useAuth = () => {
     }
 
     try {
-      const userData = await useApi('/auth/user/', 'GET');
+      const userData = await fetchCurrentUser();
       user.value = userData;
       return true;
     } catch (error) {

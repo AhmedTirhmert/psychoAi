@@ -6,10 +6,7 @@ export default defineNuxtConfig({
       apiBaseUrl: '',
     },
   },
-  sourcemap: {
-    server: true,
-    client: false,
-  },
+
   modules: [
     '@nuxt/ui',
     '@nuxt/eslint',

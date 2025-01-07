@@ -6,7 +6,9 @@
   const { user } = useUser();
 </script>
 <template>
-  <div>{{ user }}</div>
+  <div class="flex items-center justify-center w-dvw h-dvh">
+    {{ user }}
+  </div>
 </template>
 
 <style scoped></style>

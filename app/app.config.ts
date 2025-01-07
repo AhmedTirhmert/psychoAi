@@ -2,7 +2,7 @@ export default defineAppConfig({
   name: 'PsychoAI',
   ui: {
     colors: {
-      primary: 'indigo',
+      primary: 'blue',
       neutral: 'slate',
     },
     card: {
@@ -46,5 +46,6 @@ export default defineAppConfig({
         },
       },
     },
+    
   },
 });

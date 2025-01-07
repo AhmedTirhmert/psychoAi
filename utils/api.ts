@@ -9,6 +9,7 @@ export async function useApi(
   requiresAuth: boolean = true,
   h3Event?: H3Event,
 ) {
+  const access_token = useCookie('access_token');
   const config = useRuntimeConfig();
   const url = `${config.public.apiBaseUrl}${endpoint}`;
   const cacheKey = `${method}:${url}`;
